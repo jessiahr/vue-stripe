@@ -1,0 +1,69 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>VueStripe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link rel="shortcut icon" type="image/png" href="img/favicon.png"> -->
+  <link href="node_modules/basscss/css/basscss.css" rel="stylesheet">
+  <link rel="stylesheet" href="dist/styles/main.css">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
+  <script src="http://cdn.jsdelivr.net/vue/1.0.16/vue.min.js"></script>
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script src="dist/scripts/main.js"></script>
+
+  <script>
+
+  </script>
+</head>
+<body id="app" >
+
+
+
+  <div class="container">
+
+    <header class="py2 mt3 border-bottom">
+      <div class="sm-flex flex-center flex-wrap">
+        <div class="flex-auto">
+          <div class="mxn1">
+            <a href="#" class="btn compact btn-link btn-small p1">VueStripe</a>
+          </div>
+          <h1 class="m0">Stripe Payments In Vue.js</h1>
+        </div>
+        <div class="mxn1">
+          <a href="" target="_blank" class="btn compact btn-link p1">View on Github</a>
+        </div>
+      </div>
+    </header>
+  <div class="clearfix">
+    <div class="col-12">
+      <h1 class="center p3">Collect Billing information</h1>
+    </div>
+    <div class="left col-6  ">
+      <p>
+        Shows the forn for a credit card and converts it into a stripe card_token.
+      </p>
+
+    </div>
+    <div class="right col-4 border rounded p2">
+      <h3 class="center">Pay Bobs Burgers</h3>
+      <vue-stripe class="mt4" dev-mode="true" :show-button="false" :card.sync="$root.cardToken" stripe-key="pk_test_ixZFV6xBWOmmLJqtwp8D3jb5"></vue-stripe>
+    </div>
+  </div>
+  <div class="clearfix mt3">
+    <div class="right col-4 border rounded p2">
+      {{$root.cardToken | json}}
+    <button class="btn orange" @click.prevent="$root.vueStripeCreateCardToken()">charge me</button>
+    </div>
+  </div>
+</div>
+
+  <script>
+  new Vue({
+    el: '#app'
+});
+</script>
+</body>
+</html>

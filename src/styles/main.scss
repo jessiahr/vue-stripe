@@ -1,0 +1,84 @@
+// start vue-stripe styles
+$k-height: 2rem;
+$kfont-size: 1rem;
+$kdisabled-color: #ccc;
+$kfield-spacing: 1rem;
+$kerror-color: red;
+
+$kimage-arrows: '<svg xmlns="http://www.w3.org/2000/svg" width="10.3" height="18" viewBox="0 0 20.7 35.5"><style>.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#cccccc;}</style><path id="Film_1_x2C__Video_2_4_" class="st0" d="M11.3.4l9.2 12.9c.5.7.1 2.1-.9 2.1H1.1c-1 0-1.4-1.5-.9-2.2L9.4.7c.5-.7 1.4-1 1.9-.3z"/><path id="Film_1_x2C__Video_2_3_" class="st0" d="M9.4 35.1L.2 22.4c-.5-.7-.1-1.9.9-1.9h18.5c1 0 1.4 1.3.9 2l-9.2 12.4c-.5.7-1.4.9-1.9.2z"/></svg>';
+
+%form-border {
+  border: 2px solid $kdisabled-color;
+  border-radius: 5px;
+}
+
+%form-inner {
+  padding-left: 15px;
+  width:100%;
+  line-height: 1.5rem;
+  font-size: $kfont-size;
+}
+
+.vue-stripe,
+.bear-mode {
+  color: #000;
+
+  .error-text {
+    text-transform: uppercase;
+    color: $kerror-color;
+    font-size: 0.8rem;
+  }
+
+  .error {
+    border: 2px solid $kerror-color;
+    color: red;
+
+    &:focus {
+      outline: none !important;
+      border:2px solid $kerror-color;
+      box-shadow: 0 0 10px $kerror-color;
+    }
+  }
+
+  .styled-select {
+    @extend %form-border;
+    overflow: hidden;
+    background: url('data:image/svg+xml;utf8, #{$kimage-arrows}') no-repeat right ;
+    background-position: right 10px center;
+
+    select {
+      @extend %form-inner;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      -webkit-appearance: none;
+      height: inherit;
+
+    }
+  }
+
+  .placeholder {
+    color: $kdisabled-color;
+  }
+
+  input {
+    @extend %form-inner;
+    @extend %form-border;
+    height: inherit;
+  }
+
+  .form-row {
+    margin-bottom: $kfield-spacing;
+    display: flex;
+
+    > label {
+      width: 100%;
+      margin-left: $kfield-spacing;
+      margin-right: $kfield-spacing;
+    }
+
+    > label:last-child, > label:first-child {
+      margin: 0px;
+    }
+  }
+}
